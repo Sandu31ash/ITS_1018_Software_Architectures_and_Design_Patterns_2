@@ -1,5 +1,9 @@
 package lk.ijse.ad2cwuserservice.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 
 public class ItemDTO implements Serializable {

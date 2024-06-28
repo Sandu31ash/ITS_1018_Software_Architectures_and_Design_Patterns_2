@@ -12,7 +12,9 @@ import java.io.Serializable;
 public class VehicleDTO implements Serializable {
 
     private String vehicleNo;
+    private String vehicleOwner;
     private String vehicleType;
+    private String vehicleColor;
 
 //    public VehicleDTO(String vehicleNo, String vehicleType) {
 //        this.vehicleNo = vehicleNo;

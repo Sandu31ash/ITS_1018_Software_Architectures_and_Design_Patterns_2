@@ -16,6 +16,8 @@ public class VehicleEntity implements SuperEntity{
 
     @Id
     private String vehicleNo;
+    private String vehicleOwner;
     private String vehicleType;
+    private String vehicleColor;
 
 }

@@ -2,13 +2,19 @@ package lk.ijse.ad2cwuserservice.controller;
 
 import lk.ijse.ad2cwuserservice.dto.ItemDTO;
 import lk.ijse.ad2cwuserservice.dto.PaymentDTO;
+import lk.ijse.ad2cwuserservice.dto.UserDTO;
+import lk.ijse.ad2cwuserservice.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("api/v1/user")
+@RequiredArgsConstructor
 public class UserController {
+
+    private final UserService userService;
 
     @Autowired
     private RestTemplate restTemplate;
@@ -16,6 +22,12 @@ public class UserController {
     @GetMapping("health")
     public String checkUserHealth(){
         return "User health Okay!";
+    }
+
+    @PostMapping("saveUser")
+    public UserDTO saveUser(@RequestBody UserDTO userDTO){
+        System.out.println(userDTO);
+        return userService.saveUser(userDTO);
     }
 
     @GetMapping("userPaymentHealth")
