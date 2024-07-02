@@ -28,17 +28,17 @@ public class PaymentServiceImpl implements PaymentService {
         return mapping.toPaymentDTO(paymentRepo.getPaymentByPaymentCode(paymentCode));
     }
 
-    @Override
-    public void updatePayment(PaymentDTO paymentDTO) {
-        PaymentEntity payment = paymentRepo.getPaymentByPaymentCode(paymentDTO.getPaymentCode());
-        payment.setTicketCode(paymentDTO.getTicketCode());
-        payment.setUserId(paymentDTO.getUserId());
-        payment.setVehicleNo(paymentDTO.getVehicleNo());
-        payment.setDate(paymentDTO.getDate());
-        payment.setTime(paymentDTO.getTime());
-        payment.setPayMethod(paymentDTO.getPayMethod());
-        payment.setTicketPrice(paymentDTO.getTicketPrice());
-        paymentRepo.save(payment);
-    }
+//    @Override
+//    public void updatePayment(PaymentDTO paymentDTO) {
+//        PaymentEntity payment = paymentRepo.getPaymentByPaymentCode(paymentDTO.getPaymentCode());
+//        payment.setTicketCode(paymentDTO.getTicketCode());
+//        payment.setUserId(paymentDTO.getUserId());
+//        payment.setVehicleNo(paymentDTO.getVehicleNo());
+//        payment.setDate(paymentDTO.getDate());
+//        payment.setTime(paymentDTO.getTime());
+//        payment.setPayMethod(paymentDTO.getPayMethod());
+//        payment.setTicketPrice(paymentDTO.getTicketPrice());
+//        paymentRepo.save(payment);
+//    }
 
 }

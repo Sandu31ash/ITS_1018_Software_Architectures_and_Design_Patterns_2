@@ -39,10 +39,10 @@ public class PaymentController {
         return ResponseEntity.ok(paymentDTO);
     }
 
-    @PutMapping(value = "/update", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> updatePayment(@RequestBody PaymentDTO paymentDTO) {
-        paymentService.updatePayment(paymentDTO);
-        return ResponseEntity.ok().build();
-    }
+//    @PutMapping(value = "/update", consumes = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseEntity<?> updatePayment(@RequestBody PaymentDTO paymentDTO) {
+//        paymentService.updatePayment(paymentDTO);
+//        return ResponseEntity.ok().build();
+//    }
 
 }

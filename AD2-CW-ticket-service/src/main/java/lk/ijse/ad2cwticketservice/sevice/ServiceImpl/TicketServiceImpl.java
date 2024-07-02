@@ -29,17 +29,17 @@ public class TicketServiceImpl implements TicketService {
         return mapping.toTicketDTO(ticketRepo.getTicketByTicketCode(ticketCode));
     }
 
-    @Override
-    public void updateTicket(TicketDTO ticketDTO) {
-        TicketEntity ticket = ticketRepo.getTicketByTicketCode(ticketDTO.getTicketCode());
-        ticket.setVehicleNo(ticketDTO.getVehicleNo());
-        ticket.setUserId(ticketDTO.getUserId());
-        ticket.setDate(ticketDTO.getDate());
-        ticket.setTime(ticketDTO.getTime());
-        ticket.setTicketPrice(ticketDTO.getTicketPrice());
-        ticket.setStatus(ticketDTO.getStatus());
-        ticket.setDescription(ticketDTO.getDescription());
-        ticketRepo.save(ticket);
-    }
+//    @Override
+//    public void updateTicket(TicketDTO ticketDTO) {
+//        TicketEntity ticket = ticketRepo.getTicketByTicketCode(ticketDTO.getTicketCode());
+//        ticket.setVehicleNo(ticketDTO.getVehicleNo());
+//        ticket.setUserId(ticketDTO.getUserId());
+//        ticket.setDate(ticketDTO.getDate());
+//        ticket.setTime(ticketDTO.getTime());
+//        ticket.setTicketPrice(ticketDTO.getTicketPrice());
+//        ticket.setStatus(ticketDTO.getStatus());
+//        ticket.setDescription(ticketDTO.getDescription());
+//        ticketRepo.save(ticket);
+//    }
 
 }

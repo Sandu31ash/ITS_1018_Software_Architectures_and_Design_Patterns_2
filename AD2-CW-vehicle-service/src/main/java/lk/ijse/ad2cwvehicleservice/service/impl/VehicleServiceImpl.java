@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.Console;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -23,37 +24,43 @@ public class VehicleServiceImpl implements VehicleService {
 
     private final Mapping mapping;
 
+    private static final Logger logger = Logger.getLogger(VehicleServiceImpl.class.getName());
+
     @Override
     public VehicleDTO saveVehicle(VehicleDTO vehicleDTO) {
-
-        String vehicleNo = vehicleDTO.getVehicleNo();
-        String vehicleOwnerRegex = "^(?:[A-Z]{2}|[A-Z]{3}|C[A-Z]{2})-\\d{4}$";
-        Pattern pattern = Pattern.compile(vehicleOwnerRegex);
-        Matcher matcher = pattern.matcher(vehicleDTO.getVehicleOwner());
-
-//        if(vehicleDTO!=null){
-//            if(vehicleNo!=null && matcher.matches()){
-//                return mapping.toVehicleDTO(vehicleRepo.save(mapping.toVehicle(vehicleDTO)));
-//            }else{
-//                System.out.println("a");
-//            }
-//
-//        }else {
-//            throw new IllegalArgumentException("VehicleDTO can't be null");
-//        }
-
-        //////////////////////////////////////////////////////////
-
-        if(vehicleDTO==null){
+        if (vehicleDTO == null) {
+            logger.info("VehicleDTO can't be null: " + vehicleDTO);
             throw new IllegalArgumentException("VehicleDTO can't be null");
-        }else if (vehicleNo==null && !matcher.matches()){
-            throw new IllegalArgumentException("incorrect vehicleNo entry!");
-        }else {
-            return mapping.toVehicleDTO(vehicleRepo.save(mapping.toVehicle(vehicleDTO)));
-
         }
 
+        String vehicleNo = vehicleDTO.getVehicleNo();
+        String vehicleOwner = vehicleDTO.getVehicleOwner();
+        String vehicleType = vehicleDTO.getVehicleColor();
+        String vehicleColor = vehicleDTO.getVehicleColor();
+
+        if (vehicleNo == null || vehicleNo.isEmpty()) {
+            logger.info("Vehicle number can't be null: " + vehicleNo);
+            throw new IllegalArgumentException("Vehicle number can't be null");
+        }
+
+        if(vehicleOwner == null || vehicleOwner.isEmpty() || vehicleType == null || vehicleType.isEmpty() || vehicleColor == null || vehicleColor.isEmpty()){
+            logger.info("Fill all the fields before save!");
+            throw new IllegalArgumentException("Some field is not field yet!");
+        }
+
+        String vehicleNoRegex = "^(?:[A-Z]{2}|[A-Z]{3}|C[A-Z]{2})-\\d{4}$";
+        Pattern pattern = Pattern.compile(vehicleNoRegex);
+        Matcher matcher = pattern.matcher(vehicleNo);
+
+        if (!matcher.matches()) {
+            logger.info("Incorrect vehicle number entry!: " + vehicleNo);
+            throw new IllegalArgumentException("Incorrect vehicle number entry! " + vehicleNo);
+        }
+
+        logger.info("Saving vehicle: " + vehicleDTO);
+        return mapping.toVehicleDTO(vehicleRepo.save(mapping.toVehicle(vehicleDTO)));
     }
+
 
 //    @Override
 //    public List<CustomerDTO> getAllCustomer() {

@@ -7,7 +7,7 @@ public interface TicketService {
     TicketDTO saveTicket(TicketDTO ticketDTO);
 //    List<CustomerDTO> getAllCustomer();
     TicketDTO getTicketByTicketCode(String ticketCode);
-    void updateTicket(TicketDTO ticketDTO);
+//    void updateTicket(TicketDTO ticketDTO);
 //    void deleteTicket(String ticketCode);
 
 }

@@ -7,7 +7,7 @@ public interface PaymentService {
     PaymentDTO savePayment(PaymentDTO paymentDTO);
 //    List<PaymentDTO> getAllPayment();
     PaymentDTO getPaymentByPaymentCode(String paymentCode);
-    void updatePayment(PaymentDTO paymentDTO);
+//    void updatePayment(PaymentDTO paymentDTO);
 //    void deletePayment(String paymentCode);
 
 }

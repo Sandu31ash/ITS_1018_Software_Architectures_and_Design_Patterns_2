@@ -37,10 +37,10 @@ public class TicketController {
         return ResponseEntity.ok(ticketDTO);
     }
 
-    @PutMapping(value = "/update", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> updateTicket(@RequestBody TicketDTO ticketDTO) {
-        ticketService.updateTicket(ticketDTO);
-        return ResponseEntity.ok().build();
-    }
+//    @PutMapping(value = "/update", consumes = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseEntity<?> updateTicket(@RequestBody TicketDTO ticketDTO) {
+//        ticketService.updateTicket(ticketDTO);
+//        return ResponseEntity.ok().build();
+//    }
 
 }
