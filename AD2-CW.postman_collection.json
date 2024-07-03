@@ -91,10 +91,24 @@
 					"response": []
 				},
 				{
-					"name": "Update",
+					"name": "Get All Ticket",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/ticket/getAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"ticket",
+								"getAll"
+							]
+						}
 					},
 					"response": []
 				}
@@ -132,7 +146,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"vehicleNo\" : \"V007\",\r\n    \"vehicleOwner\" : \"A.S.Senevirathna\",\r\n    \"vehicleType\" : \"Car\",\r\n    \"vehicleColor\" : \"Black\"\r\n}",
+							"raw": "{\r\n    \"vehicleNo\" : \"CAR-2501\",\r\n    \"vehicleOwner\" : \"ABC-123\",\r\n    \"vehicleType\" : \"Car\",\r\n    \"vehicleColor\" : \"Black\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -217,6 +231,63 @@
 								"v1",
 								"vehicle",
 								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Vehicle",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "vehicleNo",
+								"value": "BED-2510",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/vehicle/getAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"vehicle",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "vehicleNo",
+								"value": "ABC-1234",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/vehicle/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"vehicle",
+								"delete"
 							]
 						}
 					},
@@ -309,10 +380,24 @@
 					"response": []
 				},
 				{
-					"name": "Update",
+					"name": "Get All Payment",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/payment/getAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"payment",
+								"getAll"
+							]
+						}
 					},
 					"response": []
 				}
@@ -322,12 +407,18 @@
 			"name": "User",
 			"item": [
 				{
-					"name": "Health",
+					"name": "Get User",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "userId",
+								"value": "U001",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:8080/api/v1/user/userPaymentHealth",
+							"raw": "http://localhost:8080/api/v1/user/get",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -337,7 +428,7 @@
 								"api",
 								"v1",
 								"user",
-								"userPaymentHealth"
+								"get"
 							]
 						}
 					},
@@ -375,7 +466,7 @@
 					"response": []
 				},
 				{
-					"name": "User Save",
+					"name": "Save User",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -400,6 +491,65 @@
 								"v1",
 								"user",
 								"saveUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"U001\",\r\n    \"userName\": \"ash1\",\r\n    \"password\": \"31\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/user/updateUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"updateUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "userId",
+								"value": "U002",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/user/deleteUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"deleteUser"
 							]
 						}
 					},
