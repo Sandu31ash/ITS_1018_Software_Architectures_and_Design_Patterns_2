@@ -11,10 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.Console;
 import java.util.List;
-<<<<<<< HEAD
 import java.util.logging.Logger;
-=======
->>>>>>> 555018377788fbb74ca2a30971e5c82e9fae296d
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -31,7 +28,6 @@ public class VehicleServiceImpl implements VehicleService {
 
     @Override
     public VehicleDTO saveVehicle(VehicleDTO vehicleDTO) {
-<<<<<<< HEAD
         if (vehicleDTO == null) {
             logger.info("VehicleDTO can't be null: " + vehicleDTO);
             throw new IllegalArgumentException("VehicleDTO can't be null");
@@ -63,36 +59,6 @@ public class VehicleServiceImpl implements VehicleService {
 
         logger.info("Saving vehicle: " + vehicleDTO);
         return mapping.toVehicleDTO(vehicleRepo.save(mapping.toVehicle(vehicleDTO)));
-=======
-
-        String vehicleNo = vehicleDTO.getVehicleNo();
-        String vehicleOwnerRegex = "^(?:[A-Z]{2}|[A-Z]{3}|C[A-Z]{2})-\\d{4}$";
-        Pattern pattern = Pattern.compile(vehicleOwnerRegex);
-        Matcher matcher = pattern.matcher(vehicleDTO.getVehicleOwner());
-
-//        if(vehicleDTO!=null){
-//            if(vehicleNo!=null && matcher.matches()){
-//                return mapping.toVehicleDTO(vehicleRepo.save(mapping.toVehicle(vehicleDTO)));
-//            }else{
-//                System.out.println("a");
-//            }
-//
-//        }else {
-//            throw new IllegalArgumentException("VehicleDTO can't be null");
-//        }
-
-        //////////////////////////////////////////////////////////
-
-        if(vehicleDTO==null){
-            throw new IllegalArgumentException("VehicleDTO can't be null");
-        }else if (vehicleNo==null && !matcher.matches()){
-            throw new IllegalArgumentException("incorrect vehicleNo entry!");
-        }else {
-            return mapping.toVehicleDTO(vehicleRepo.save(mapping.toVehicle(vehicleDTO)));
-
-        }
-
->>>>>>> 555018377788fbb74ca2a30971e5c82e9fae296d
     }
 
 

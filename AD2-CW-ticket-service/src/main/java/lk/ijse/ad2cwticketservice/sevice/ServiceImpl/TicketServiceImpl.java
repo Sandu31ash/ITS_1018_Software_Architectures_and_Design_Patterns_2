@@ -22,13 +22,22 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public TicketDTO saveTicket(TicketDTO ticketDTO) {
-        //customerDTO.setCCode(UUID.randomUUID().toString());
         return mapping.toTicketDTO(ticketRepo.save(mapping.toTicket(ticketDTO)));
     }
 
     @Override
     public TicketDTO getTicketByTicketCode(String ticketCode) {
         return mapping.toTicketDTO(ticketRepo.getTicketByTicketCode(ticketCode));
+    }
+
+    @Override
+    public void updateStatus(String ticketCode) {
+        TicketEntity ticketEntity = ticketRepo.getTicketByTicketCode(ticketCode);
+        ticketEntity.setStatus("paid");
+        ticketRepo.save(ticketEntity);
+
+//        vehicle.setVehicleOwner(vehicleDTO.getVehicleOwner());
+//        vehicleRepo.save(vehicle);
     }
 
     @Override

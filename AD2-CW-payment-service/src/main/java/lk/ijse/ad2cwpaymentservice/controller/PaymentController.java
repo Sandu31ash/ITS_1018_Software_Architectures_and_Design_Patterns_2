@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.HashMap;
 import java.util.List;
@@ -39,7 +40,20 @@ public class PaymentController {
 //        return payment;
 
         System.out.println(paymentDTO);
-            return paymentService.savePayment(paymentDTO);
+
+//        updateTicketInPaymentClass(paymentDTO.getTicketCode());
+
+        String url = "http://ticket-service/api/v1/ticket/updateStatus";
+
+        // Building the URI with parameters
+        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url)
+                .queryParam("ticketCode", paymentDTO.getTicketCode());
+
+        // Make the PUT request
+        restTemplate.put(builder.toUriString(), null);
+
+
+        return paymentService.savePayment(paymentDTO);
 
     }
 
@@ -54,20 +68,21 @@ public class PaymentController {
         return paymentService.getAllPayment();
     }
 
-//    @PutMapping("updateTicketStatus")
-//    public TicketDTO updateTicketInPaymentClass(@RequestBody String ticketCode){
-//        Map<String, String> request = new HashMap<>();
-//        request.put("ticketCode", ticketCode);
-//        request.put("status", "paid");
+//    @PutMapping("/updateTicketStatus")
+//    public void updateTicketInPaymentClass(String ticketCode){
+
+//        restTemplate.put("http://ticket-service/api/v1/ticket/updateStatus?ticketCode="+ticketCode, String.class);
+
+//        String url = "http://ticket-service/api/v1/ticket/updateStatus";
 //
-//        // Make a POST request to the ticket service to update the ticket status
-//        return restTemplate.postForObject("http://ticket-service/api/v1/ticket/update", request, TicketDTO.class);
+//        // Building the URI with parameters
+//        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url)
+//                .queryParam("ticketCode", ticketCode);
+//
+//        // Make the PUT request
+//        restTemplate.put(builder.toUriString(), null);
+
 //    }
 
-//    @PutMapping(value = "/update", consumes = MediaType.APPLICATION_JSON_VALUE)
-//    public ResponseEntity<?> updatePayment(@RequestBody PaymentDTO paymentDTO) {
-//        paymentService.updatePayment(paymentDTO);
-//        return ResponseEntity.ok().build();
-//    }
 
 }

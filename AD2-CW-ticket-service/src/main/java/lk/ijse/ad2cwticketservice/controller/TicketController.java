@@ -50,6 +50,13 @@ public class TicketController {
         return ticketService.getAllTicket();
     }
 
+    @PutMapping("/updateStatus")
+    public ResponseEntity<?> updateTicket(@RequestParam String ticketCode) {
+        ticketService.updateStatus(ticketCode);
+        return ResponseEntity.ok().build();
+    }
+
+
 //    @DeleteMapping("/delete")
 //    public ResponseEntity<?> deleteTicket(@RequestHeader String ticketCode){
 //        ticketService.deleteTicket(ticketCode);
