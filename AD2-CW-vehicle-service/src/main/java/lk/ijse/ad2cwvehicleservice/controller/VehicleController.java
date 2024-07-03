@@ -7,6 +7,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/v1/vehicle")
 @RequiredArgsConstructor
@@ -38,6 +40,17 @@ public class VehicleController {
     @PutMapping(value = "/update", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> updateVehicle(@RequestBody VehicleDTO vehicleDTO) {
         vehicleService.updateVehicle(vehicleDTO);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/getAll")
+    public List<VehicleDTO> getAllVehicle(){
+        return vehicleService.getAllVehicle();
+    }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity<?> deleteVehicle(@RequestHeader String vehicleNo){
+        vehicleService.deleteVehicle(vehicleNo);
         return ResponseEntity.ok().build();
     }
 

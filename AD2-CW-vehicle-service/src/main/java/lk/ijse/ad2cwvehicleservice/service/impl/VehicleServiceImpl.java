@@ -73,6 +73,11 @@ public class VehicleServiceImpl implements VehicleService {
     }
 
     @Override
+    public List<VehicleDTO> getAllVehicle() {
+        return mapping.toVehicleDTOList(vehicleRepo.findAll());
+    }
+
+    @Override
     public void updateVehicle(VehicleDTO vehicleDTO) {
         VehicleEntity vehicle = vehicleRepo.getVehicleByVehicleNo(vehicleDTO.getVehicleNo());
         vehicle.setVehicleOwner(vehicleDTO.getVehicleOwner());
@@ -81,10 +86,10 @@ public class VehicleServiceImpl implements VehicleService {
         vehicleRepo.save(vehicle);
     }
 
-//    @Override
-//    public void deleteCustomer(String cusCode) {
-//        customerRepo.deleteById(cusCode);
-//    }
+    @Override
+    public void deleteVehicle(String vehicleNo) {
+        vehicleRepo.deleteById(vehicleNo);
+    }
 
 
 }

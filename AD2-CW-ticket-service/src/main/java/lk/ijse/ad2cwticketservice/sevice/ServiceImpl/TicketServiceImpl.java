@@ -9,6 +9,8 @@ import lk.ijse.ad2cwticketservice.util.Mapping;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -28,6 +30,16 @@ public class TicketServiceImpl implements TicketService {
     public TicketDTO getTicketByTicketCode(String ticketCode) {
         return mapping.toTicketDTO(ticketRepo.getTicketByTicketCode(ticketCode));
     }
+
+    @Override
+    public List<TicketDTO> getAllTicket() {
+        return mapping.toTicketDTOList(ticketRepo.findAll());
+    }
+
+//    @Override
+//    public void deleteVehicle(String vehicleNo) {
+//        vehicleRepo.deleteById(vehicleNo);
+//    }
 
 //    @Override
 //    public void updateTicket(TicketDTO ticketDTO) {

@@ -7,6 +7,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/v1/ticket")
 @RequiredArgsConstructor
@@ -40,6 +42,17 @@ public class TicketController {
 //    @PutMapping(value = "/update", consumes = MediaType.APPLICATION_JSON_VALUE)
 //    public ResponseEntity<?> updateTicket(@RequestBody TicketDTO ticketDTO) {
 //        ticketService.updateTicket(ticketDTO);
+//        return ResponseEntity.ok().build();
+//    }
+
+    @GetMapping("/getAll")
+    public List<TicketDTO> getAllTicket(){
+        return ticketService.getAllTicket();
+    }
+
+//    @DeleteMapping("/delete")
+//    public ResponseEntity<?> deleteTicket(@RequestHeader String ticketCode){
+//        ticketService.deleteTicket(ticketCode);
 //        return ResponseEntity.ok().build();
 //    }
 
