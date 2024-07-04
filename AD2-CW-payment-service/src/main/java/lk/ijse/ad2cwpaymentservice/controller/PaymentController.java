@@ -42,9 +42,19 @@ public class PaymentController {
 
         System.out.println(paymentDTO);
 
-        updateTicketInPaymentClass(paymentDTO.getTicketCode(), ticketDTO);
+//        updateTicketInPaymentClass(paymentDTO.getTicketCode(), ticketDTO);
+//
+//        String url = "http://ticket-service/api/v1/ticket/updateStatus?";
 
-        String url = "http://ticket-service/api/v1/ticket/updateStatus?";
+////////////////////////////////////////////////////////////
+//        String url = "http://ticket-service/api/v1/ticket/updateStatus?ticketCode="+paymentDTO.getTicketCode();
+//        HttpHeaders headers = new HttpHeaders();
+//        HttpEntity<TicketDTO> entity = new HttpEntity<>(ticketDTO, headers);
+//
+//        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.PUT, entity, String.class);
+////        return "successfully updated ticket " + response.getBody();
+//        System.out.println("successfully updated ticket" + response.getBody());
+////////////////////////////////////////////////////////////////
 
         // Building the URI with parameters
 //        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url)
@@ -54,8 +64,11 @@ public class PaymentController {
 //        restTemplate.put(builder.toUriString(), null);
 
 
-        return paymentService.savePayment(paymentDTO);
+        String url = "http://localhost:8080/api/v1/ticket/updateStatus?ticketCode="+paymentDTO.getTicketCode();
+        restTemplate.put(url, String.class);
+//        System.out.println(response);
 
+        return paymentService.savePayment(paymentDTO);
     }
 
     @GetMapping("get")
@@ -69,26 +82,26 @@ public class PaymentController {
         return paymentService.getAllPayment();
     }
 
-    @PutMapping("/updateTicketStatus")
-    public String updateTicketInPaymentClass(@RequestParam String ticketCode, @RequestBody TicketDTO ticketDTO){
-
-//        String url ="http://ticket-service/api/v1/ticket/updateStatus?ticketCode="+ticketCode,);
-
-        String url = "http://ticket-service/api/v1/ticket/updateStatus?ticketCode="+ticketCode;
-        HttpHeaders headers = new HttpHeaders();
-        HttpEntity<TicketDTO> entity = new HttpEntity<>(ticketDTO, headers);
-
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.PUT, entity, String.class);
-        return "successfully updated ticket " + response.getBody();
-
-        // Building the URI with parameters
-//        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url)
-//                .queryParam("ticketCode", ticketCode);
-
-        // Make the PUT request
-//        restTemplate.put(builder.toUriString(), null);
-
-    }
+//    @PutMapping("/updateTicketStatus")
+//    public String updateTicketInPaymentClass(@RequestParam String ticketCode, @RequestBody TicketDTO ticketDTO){
+//
+////        String url ="http://ticket-service/api/v1/ticket/updateStatus?ticketCode="+ticketCode,);
+//
+//        String url = "http://ticket-service/api/v1/ticket/updateStatus?ticketCode="+ticketCode;
+//        HttpHeaders headers = new HttpHeaders();
+//        HttpEntity<TicketDTO> entity = new HttpEntity<>(ticketDTO, headers);
+//
+//        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.PUT, entity, String.class);
+//        return "successfully updated ticket " + response.getBody();
+//
+//        // Building the URI with parameters
+////        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url)
+////                .queryParam("ticketCode", ticketCode);
+//
+//        // Make the PUT request
+////        restTemplate.put(builder.toUriString(), null);
+//
+//    }
 
 
 }

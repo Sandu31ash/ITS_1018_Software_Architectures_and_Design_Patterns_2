@@ -29,7 +29,56 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Health",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/ticket/health",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"ticket",
+										"health"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 04 Jul 2024 14:57:06 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "17"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "Ticket health ok!"
+						}
+					]
 				},
 				{
 					"name": "Save",
@@ -60,7 +109,65 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Save Ticket",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ticketCode\": \"T005\",\r\n    \"vehicleNo\": \"V001\",\r\n    \"userId\": \"U001\",\r\n    \"date\": \"2024-06-26\",\r\n    \"time\": \"10:20:31\",\r\n    \"ticketPrice\": 500.0,\r\n    \"status\": \"paid\",\r\n    \"description\": \"ticket issued\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/ticket/save",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"ticket",
+										"save"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 04 Jul 2024 14:57:16 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ticketCode\": \"T005\",\n    \"vehicleNo\": \"V001\",\n    \"userId\": \"U001\",\n    \"date\": \"2024-06-26T00:00:00.000+00:00\",\n    \"time\": \"10:20:31\",\n    \"ticketPrice\": 500,\n    \"status\": \"paid\",\n    \"description\": \"ticket issued\"\n}"
+						}
+					]
 				},
 				{
 					"name": "Get Ticket",
@@ -88,7 +195,62 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Get Ticket",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "ticketCode",
+										"value": "T002",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/ticket/get",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"ticket",
+										"get"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 04 Jul 2024 14:57:36 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ticketCode\": \"T002\",\n    \"vehicleNo\": \"V001\",\n    \"userId\": \"U001\",\n    \"date\": \"2024-06-26T00:00:00.000+00:00\",\n    \"time\": \"10:20:31\",\n    \"ticketPrice\": 500,\n    \"status\": \"unpaid\",\n    \"description\": \"ticket issued\"\n}"
+						}
+					]
 				},
 				{
 					"name": "Get All Ticket",
@@ -109,6 +271,63 @@
 								"getAll"
 							]
 						}
+					},
+					"response": [
+						{
+							"name": "Get All Ticket",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/ticket/getAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"ticket",
+										"getAll"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 04 Jul 2024 14:57:44 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"ticketCode\": \"T001\",\n        \"vehicleNo\": \"V001\",\n        \"userId\": \"U001\",\n        \"date\": \"2024-06-26T00:00:00.000+00:00\",\n        \"time\": \"10:20:31\",\n        \"ticketPrice\": 500,\n        \"status\": \"paid\",\n        \"description\": \"ticket issued\"\n    },\n    {\n        \"ticketCode\": \"T002\",\n        \"vehicleNo\": \"V001\",\n        \"userId\": \"U001\",\n        \"date\": \"2024-06-26T00:00:00.000+00:00\",\n        \"time\": \"10:20:31\",\n        \"ticketPrice\": 500,\n        \"status\": \"unpaid\",\n        \"description\": \"ticket issued\"\n    },\n    {\n        \"ticketCode\": \"T003\",\n        \"vehicleNo\": \"V001\",\n        \"userId\": \"U001\",\n        \"date\": \"2024-06-27T00:00:00.000+00:00\",\n        \"time\": \"10:20:27\",\n        \"ticketPrice\": 450,\n        \"status\": \"paid\",\n        \"description\": \"ticket issued\"\n    },\n    {\n        \"ticketCode\": \"T004\",\n        \"vehicleNo\": \"V001\",\n        \"userId\": \"U001\",\n        \"date\": \"2024-06-26T00:00:00.000+00:00\",\n        \"time\": \"10:20:31\",\n        \"ticketPrice\": 500,\n        \"status\": \"paid\",\n        \"description\": \"ticket issued\"\n    },\n    {\n        \"ticketCode\": \"T005\",\n        \"vehicleNo\": \"V001\",\n        \"userId\": \"U001\",\n        \"date\": \"2024-06-26T00:00:00.000+00:00\",\n        \"time\": \"10:20:31\",\n        \"ticketPrice\": 500,\n        \"status\": \"paid\",\n        \"description\": \"ticket issued\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "PutTicket",
+					"request": {
+						"method": "GET",
+						"header": []
 					},
 					"response": []
 				}
@@ -662,7 +881,56 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Health",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/payment/health",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"payment",
+										"health"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 04 Jul 2024 14:56:52 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "18"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "Payment health ok!"
+						}
+					]
 				},
 				{
 					"name": "save",
@@ -721,7 +989,62 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Get Payment",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "paymentCode",
+										"value": "P001",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/payment/get",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"payment",
+										"get"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 04 Jul 2024 14:56:28 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"paymentCode\": \"P001\",\n    \"ticketCode\": \"T001\",\n    \"userId\": \"U001\",\n    \"vehicleNo\": \"V001\",\n    \"date\": \"2024-06-25T00:00:00.000+00:00\",\n    \"time\": \"10:31:00\",\n    \"payMethod\": \"cash\",\n    \"ticketPrice\": 0\n}"
+						}
+					]
 				},
 				{
 					"name": "Get All Payment",
@@ -743,7 +1066,145 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Get All Payment",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/payment/getAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"payment",
+										"getAll"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 04 Jul 2024 14:56:42 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"paymentCode\": \"P001\",\n        \"ticketCode\": \"T001\",\n        \"userId\": \"U001\",\n        \"vehicleNo\": \"V001\",\n        \"date\": \"2024-06-25T00:00:00.000+00:00\",\n        \"time\": \"10:31:00\",\n        \"payMethod\": \"cash\",\n        \"ticketPrice\": 0\n    },\n    {\n        \"paymentCode\": \"P002\",\n        \"ticketCode\": \"T002\",\n        \"userId\": \"U002\",\n        \"vehicleNo\": \"V002\",\n        \"date\": \"2024-06-27T00:00:00.000+00:00\",\n        \"time\": \"10:31:22\",\n        \"payMethod\": \"cash\",\n        \"ticketPrice\": 250\n    },\n    {\n        \"paymentCode\": \"P003\",\n        \"ticketCode\": \"T001\",\n        \"userId\": \"U001\",\n        \"vehicleNo\": \"V001\",\n        \"date\": \"2024-06-25T00:00:00.000+00:00\",\n        \"time\": \"10:31:00\",\n        \"payMethod\": \"cash\",\n        \"ticketPrice\": 0\n    },\n    {\n        \"paymentCode\": \"P005\",\n        \"ticketCode\": \"T003\",\n        \"userId\": \"U002\",\n        \"vehicleNo\": \"CAR-2510\",\n        \"date\": \"2024-07-02T00:00:00.000+00:00\",\n        \"time\": \"20:23:20\",\n        \"payMethod\": \"cash\",\n        \"ticketPrice\": 450\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"paymentCode\" : \"P009\",\r\n\"ticketCode\" : \"T002\",\r\n\"userId\" : \"U002\",\r\n\"vehicleNo\" : \"CAR-2510\",\r\n\"date\" : \"2024-07-02\",\r\n\"time\" : \"20:23:20\",\r\n\"payMethod\" : \"cash\",\r\n\"ticketPrice\" : 450.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/payment/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"payment",
+								"save"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Save Payment",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"paymentCode\" : \"P009\",\r\n\"ticketCode\" : \"T002\",\r\n\"userId\" : \"U002\",\r\n\"vehicleNo\" : \"CAR-2510\",\r\n\"date\" : \"2024-07-02\",\r\n\"time\" : \"20:23:20\",\r\n\"payMethod\" : \"cash\",\r\n\"ticketPrice\" : 450.00\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/payment/save",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"payment",
+										"save"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 04 Jul 2024 16:23:46 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"paymentCode\": \"P009\",\n    \"ticketCode\": \"T002\",\n    \"userId\": \"U002\",\n    \"vehicleNo\": \"CAR-2510\",\n    \"date\": \"2024-07-02T00:00:00.000+00:00\",\n    \"time\": \"20:23:20\",\n    \"payMethod\": \"cash\",\n    \"ticketPrice\": 450\n}"
+						}
+					]
 				}
 			]
 		},
@@ -840,7 +1301,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"paymentCode\": \"P001\",\r\n    \"date\": \"2024-06-25\",\r\n    \"time\": \"10:31:00\",\r\n    \"price\": 500.00\r\n}",
+							"raw": "{\r\n\"paymentCode\" : \"P006\",\r\n\"ticketCode\" : \"T003\",\r\n\"userId\" : \"U002\",\r\n\"vehicleNo\" : \"CAR-2510\",\r\n\"date\" : \"2024-07-02\",\r\n\"time\" : \"20:23:20\",\r\n\"payMethod\" : \"cash\",\r\n\"ticketPrice\" : 450.00\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -862,7 +1323,65 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "UserPaymentSave",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"paymentCode\" : \"P006\",\r\n\"ticketCode\" : \"T003\",\r\n\"userId\" : \"U002\",\r\n\"vehicleNo\" : \"CAR-2510\",\r\n\"date\" : \"2024-07-02\",\r\n\"time\" : \"20:23:20\",\r\n\"payMethod\" : \"cash\",\r\n\"ticketPrice\" : 450.00\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/user/userPaymentSave",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"userPaymentSave"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 04 Jul 2024 14:59:50 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"paymentCode\": \"P006\",\n    \"date\": \"2024-07-02T00:00:00.000+00:00\",\n    \"time\": \"20:23:20\",\n    \"price\": 0\n}"
+						}
+					]
 				},
 				{
 					"name": "Save User",
@@ -960,7 +1479,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"userId\": \"U001\",\r\n    \"userName\": \"ash1\",\r\n    \"password\": \"31\"\r\n}",
+							"raw": "{\r\n    \"userId\": \"U002\",\r\n    \"userName\": \"ash10\",\r\n    \"password\": \"1031\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -982,7 +1501,61 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Update User",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\": \"U002\",\r\n    \"userName\": \"ash10\",\r\n    \"password\": \"1031\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/user/updateUser",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"updateUser"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 04 Jul 2024 14:58:19 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
 				},
 				{
 					"name": "Delete User",

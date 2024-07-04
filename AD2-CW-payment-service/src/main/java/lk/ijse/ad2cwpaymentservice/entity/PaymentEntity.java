@@ -28,3 +28,15 @@ public class PaymentEntity implements SuperEntity{
     private double ticketPrice;
 
 }
+
+
+//{
+//"paymentCode" : "P005",
+//"ticketCode" : "T003",
+//"userId" : "U002",
+//"vehicleNo" : "CAR-2510",
+//"date" : "2024-07-02",
+//"time" : "20:23:20",
+//"payMethod" : "cash",
+//"ticketPrice" : 450.00
+//}

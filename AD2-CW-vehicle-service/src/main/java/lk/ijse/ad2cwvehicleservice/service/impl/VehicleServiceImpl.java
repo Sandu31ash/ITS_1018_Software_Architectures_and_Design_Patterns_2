@@ -102,6 +102,11 @@ public class VehicleServiceImpl implements VehicleService {
 
     @Override
     public void deleteVehicle(String vehicleNo) {
+
+//        if(){
+
+//        }
+
         vehicleRepo.deleteById(vehicleNo);
     }
 

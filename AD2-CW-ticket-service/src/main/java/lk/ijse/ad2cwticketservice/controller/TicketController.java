@@ -51,8 +51,8 @@ public class TicketController {
     }
 
     @PutMapping("/updateStatus")
-    public String updateTicket(@RequestParam String ticketCode, @RequestBody TicketDTO ticketDTO) {
+    public void updateTicket(@RequestParam String ticketCode) {
         ticketService.updateStatus(ticketCode);
-        return "Ticket Updated.";
+//        return "Ticket Updated.";
     }
 }
