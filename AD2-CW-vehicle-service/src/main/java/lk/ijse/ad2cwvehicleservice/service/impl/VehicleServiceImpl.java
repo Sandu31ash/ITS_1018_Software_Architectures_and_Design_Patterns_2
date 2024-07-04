@@ -80,10 +80,24 @@ public class VehicleServiceImpl implements VehicleService {
     @Override
     public void updateVehicle(VehicleDTO vehicleDTO) {
         VehicleEntity vehicle = vehicleRepo.getVehicleByVehicleNo(vehicleDTO.getVehicleNo());
-        vehicle.setVehicleOwner(vehicleDTO.getVehicleOwner());
-        vehicle.setVehicleType(vehicleDTO.getVehicleType());
-        vehicle.setVehicleColor(vehicleDTO.getVehicleColor());
-        vehicleRepo.save(vehicle);
+
+        String vehicleNo = vehicleDTO.getVehicleNo();
+        String vehicleOwner = vehicleDTO.getVehicleOwner();
+        String vehicleType = vehicleDTO.getVehicleType();
+        String vehicleColor = vehicleDTO.getVehicleColor();
+
+        if(vehicleOwner == null || vehicleOwner.isEmpty() || vehicleType == null || vehicleType.isEmpty() || vehicleColor == null || vehicleColor.isEmpty()){
+
+            logger.info("Fill all the fields before save!");
+            throw new IllegalArgumentException("Some field is not field yet!");
+
+        }else{
+            vehicle.setVehicleOwner(vehicleOwner);
+            vehicle.setVehicleType(vehicleType);
+            vehicle.setVehicleColor(vehicleColor);
+            vehicleRepo.save(vehicle);
+        }
+
     }
 
     @Override

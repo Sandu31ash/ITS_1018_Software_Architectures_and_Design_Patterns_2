@@ -51,16 +51,8 @@ public class TicketController {
     }
 
     @PutMapping("/updateStatus")
-    public ResponseEntity<?> updateTicket(@RequestParam String ticketCode) {
+    public String updateTicket(@RequestParam String ticketCode, @RequestBody TicketDTO ticketDTO) {
         ticketService.updateStatus(ticketCode);
-        return ResponseEntity.ok().build();
+        return "Ticket Updated.";
     }
-
-
-//    @DeleteMapping("/delete")
-//    public ResponseEntity<?> deleteTicket(@RequestHeader String ticketCode){
-//        ticketService.deleteTicket(ticketCode);
-//        return ResponseEntity.ok().build();
-//    }
-
 }

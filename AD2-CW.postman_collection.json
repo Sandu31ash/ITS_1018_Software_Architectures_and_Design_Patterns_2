@@ -137,7 +137,56 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Health",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/vehicle/health",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"vehicle",
+										"health"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 04 Jul 2024 14:44:08 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "18"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "Vehicle health ok!"
+						}
+					]
 				},
 				{
 					"name": "Save",
@@ -168,7 +217,65 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Save",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"vehicleNo\" : \"ABC-1234\",\r\n    \"vehicleOwner\" : \"1\",\r\n    \"vehicleType\" : \"a\",\r\n    \"vehicleColor\" : \"a\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/vehicle/save",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"vehicle",
+										"save"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 04 Jul 2024 14:33:24 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"vehicleNo\": \"ABC-1234\",\n    \"vehicleOwner\": \"1\",\n    \"vehicleType\": \"a\",\n    \"vehicleColor\": \"a\"\n}"
+						}
+					]
 				},
 				{
 					"name": "Get Vehicle",
@@ -177,7 +284,7 @@
 						"header": [
 							{
 								"key": "vehicleNo",
-								"value": "V001",
+								"value": "ABC-2510",
 								"type": "text"
 							}
 						],
@@ -203,16 +310,85 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Get Vehicle",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "vehicleNo",
+										"value": "ABC-2510",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/vehicle/get",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"vehicle",
+										"get"
+									],
+									"query": [
+										{
+											"key": "vehicleNo",
+											"value": "V001",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 04 Jul 2024 14:37:42 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"vehicleNo\": \"ABC-2510\",\n    \"vehicleOwner\": \"K.G.Saman\",\n    \"vehicleType\": \"Car\",\n    \"vehicleColor\": \"Black\"\n}"
+						}
+					]
 				},
 				{
 					"name": "Update",
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"vehicleNo\" : \"V001\",\r\n    \"vehicleOwner\" : \"K.G.Saman\",\r\n    \"vehicleType\" : \"Car\",\r\n    \"vehicleColor\" : \"White\"\r\n}",
+							"raw": "{\r\n    \"vehicleNo\" : \"ABC-2510\",\r\n    \"vehicleOwner\" : \"K.G.Saman\",\r\n    \"vehicleType\" : \"Car\",\r\n    \"vehicleColor\" : \"Black\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -234,7 +410,68 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Update",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"vehicleNo\" : \"ABC-2510\",\r\n    \"vehicleOwner\" : \"K.G.Saman\",\r\n    \"vehicleType\" : \"Car\",\r\n    \"vehicleColor\" : \"Black\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/vehicle/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"vehicle",
+										"update"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 04 Jul 2024 14:36:25 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
 				},
 				{
 					"name": "Get All Vehicle",
@@ -263,7 +500,63 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Get All Vehicle",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "vehicleNo",
+										"value": "BED-2510",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/vehicle/getAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"vehicle",
+										"getAll"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 04 Jul 2024 14:36:05 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"vehicleNo\": \"ABC-1234\",\n        \"vehicleOwner\": \"1\",\n        \"vehicleType\": \"a\",\n        \"vehicleColor\": \"a\"\n    },\n    {\n        \"vehicleNo\": \"ABC-2510\",\n        \"vehicleOwner\": \"K.G.Saman\",\n        \"vehicleType\": \"Car\",\n        \"vehicleColor\": \"Red\"\n    },\n    {\n        \"vehicleNo\": \"CAR-2501\",\n        \"vehicleOwner\": \"ABC-123\",\n        \"vehicleType\": \"Car\",\n        \"vehicleColor\": \"Black\"\n    },\n    {\n        \"vehicleNo\": \"CAR-5027\",\n        \"vehicleOwner\": \"ABC\",\n        \"vehicleType\": \"Car\",\n        \"vehicleColor\": \"Black\"\n    }\n]"
+						}
+					]
 				},
 				{
 					"name": "Delete",
@@ -291,7 +584,58 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Delete",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "vehicleNo",
+										"value": "ABC-1234",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/vehicle/delete",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"vehicle",
+										"delete"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 04 Jul 2024 14:43:53 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
 				}
 			]
 		},
@@ -432,7 +776,62 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Get User",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "userId",
+										"value": "U001",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/user/get",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"get"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 04 Jul 2024 14:35:11 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"userId\": \"U001\",\n    \"userName\": \"ash\",\n    \"password\": \"$2a$10$l8TgALt35iUy5ufCqj32wO3qYNhomQivIPfiyOIToVfqX/eTVVArO\"\n}"
+						}
+					]
 				},
 				{
 					"name": "UserPaymentSave",
@@ -472,7 +871,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"userId\": \"U001\",\r\n    \"userName\": \"ash\",\r\n    \"password\": \"31\"\r\n}",
+							"raw": "{\r\n    \"userId\": \"U001\",\r\n    \"userName\": \"ash\",\r\n    \"password\": \"2531\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -494,7 +893,65 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Save User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\": \"U003\",\r\n    \"userName\": \"ash3\",\r\n    \"password\": \"253131\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/user/saveUser",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"saveUser"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 04 Jul 2024 14:35:28 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"userId\": \"U003\",\n    \"userName\": \"ash3\",\n    \"password\": \"$2a$10$L5.303gZcSWoVz5QHi0.h.yTuSBFDjst28sP9zHZFmOdKydQJCufy\"\n}"
+						}
+					]
 				},
 				{
 					"name": "Update User",
@@ -553,7 +1010,58 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Delete User",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "userId",
+										"value": "U003",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/user/deleteUser",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"deleteUser"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "date",
+									"value": "Thu, 04 Jul 2024 14:34:44 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
 				}
 			]
 		}

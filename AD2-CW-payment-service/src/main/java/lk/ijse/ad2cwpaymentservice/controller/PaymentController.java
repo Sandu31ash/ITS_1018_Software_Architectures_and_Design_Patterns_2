@@ -5,8 +5,7 @@ import lk.ijse.ad2cwpaymentservice.dto.TicketDTO;
 import lk.ijse.ad2cwpaymentservice.service.PaymentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -21,6 +20,8 @@ import java.util.Map;
 public class PaymentController {
 
     private final PaymentService paymentService;
+
+    TicketDTO ticketDTO;
 
     @Autowired
     private RestTemplate restTemplate;
@@ -41,16 +42,16 @@ public class PaymentController {
 
         System.out.println(paymentDTO);
 
-//        updateTicketInPaymentClass(paymentDTO.getTicketCode());
+        updateTicketInPaymentClass(paymentDTO.getTicketCode(), ticketDTO);
 
-        String url = "http://ticket-service/api/v1/ticket/updateStatus";
+        String url = "http://ticket-service/api/v1/ticket/updateStatus?";
 
         // Building the URI with parameters
-        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url)
-                .queryParam("ticketCode", paymentDTO.getTicketCode());
+//        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url)
+//                .queryParam("ticketCode", paymentDTO.getTicketCode());
 
         // Make the PUT request
-        restTemplate.put(builder.toUriString(), null);
+//        restTemplate.put(builder.toUriString(), null);
 
 
         return paymentService.savePayment(paymentDTO);
@@ -68,21 +69,26 @@ public class PaymentController {
         return paymentService.getAllPayment();
     }
 
-//    @PutMapping("/updateTicketStatus")
-//    public void updateTicketInPaymentClass(String ticketCode){
+    @PutMapping("/updateTicketStatus")
+    public String updateTicketInPaymentClass(@RequestParam String ticketCode, @RequestBody TicketDTO ticketDTO){
 
-//        restTemplate.put("http://ticket-service/api/v1/ticket/updateStatus?ticketCode="+ticketCode, String.class);
+//        String url ="http://ticket-service/api/v1/ticket/updateStatus?ticketCode="+ticketCode,);
 
-//        String url = "http://ticket-service/api/v1/ticket/updateStatus";
-//
-//        // Building the URI with parameters
+        String url = "http://ticket-service/api/v1/ticket/updateStatus?ticketCode="+ticketCode;
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity<TicketDTO> entity = new HttpEntity<>(ticketDTO, headers);
+
+        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.PUT, entity, String.class);
+        return "successfully updated ticket " + response.getBody();
+
+        // Building the URI with parameters
 //        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url)
 //                .queryParam("ticketCode", ticketCode);
-//
-//        // Make the PUT request
+
+        // Make the PUT request
 //        restTemplate.put(builder.toUriString(), null);
 
-//    }
+    }
 
 
 }
